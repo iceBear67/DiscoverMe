@@ -42,7 +42,7 @@ public class ServerEntry {
 
     @Override
     public String toString() {
-        return "[MOTD]" + motd + "[/MOTD][AD]" + (address == null ? "" : address) + (port == -1 ? "" : ":" + port) + "[/AD]";
+        return "[MOTD]" + motd + "[/MOTD][AD]" + (address == null ? "" : address) + (port == -1 ? "" : port) + "[/AD]";
     }
 
     public int getPort() {
