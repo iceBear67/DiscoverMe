@@ -10,12 +10,18 @@ public enum DiscoverMe {
     INSTANCE;
     private static final Queue<ServerEntry> ENTRIES = new LinkedBlockingQueue<>();
     private static volatile boolean THREAD_LAUNCHED = false;
+    private static BroadcastThread thread;
 
     static {
         if (!THREAD_LAUNCHED) {
-            new BroadcastThread().start();
+            thread = new BroadcastThread();
+            thread.start();
             THREAD_LAUNCHED = true;
         }
+    }
+
+    public static BroadcastThread getThread() {
+        return thread;
     }
 
     public void addEntry(ServerEntry... entry) {

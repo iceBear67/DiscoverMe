@@ -23,6 +23,10 @@ public class BroadcastThread extends Thread {
         }
     }
 
+    public void changeState(boolean running) {
+        this.running = running;
+    }
+
     @Override
     public void run() {
         while (running && !isInterrupted()) {
